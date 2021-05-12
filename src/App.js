@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { Card, Image } from 'react-bootstrap';
-
+import PhoneAuth from './PhoneAuth'
 
 const App=()=>{
 
@@ -13,7 +13,7 @@ const App=()=>{
   const responseFacebook=(res)=>{
     console.log(res)
     setData(res)
-    //setPicture(res.picture.data.url)
+    setPicture(res.picture.data.url)
     if(res.accessToken){
       setLogin(true)
     }
@@ -23,8 +23,8 @@ const App=()=>{
   }
 
   return(
-
-    <div className="container">
+   <>
+    <div align="center" className="container">
     <Card style={{width:'600px'}}>
     <Card.Header>
     { 
@@ -47,6 +47,12 @@ const App=()=>{
     </Card>
     </div>
     
+    <div align="center">
+    <br></br>
+    <PhoneAuth/>
+    </div>
+
+    </>
     )
 }
 
